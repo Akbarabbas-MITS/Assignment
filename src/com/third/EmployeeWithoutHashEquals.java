@@ -66,11 +66,3 @@ public class EmployeeWithoutHashEquals {
 	}
 	
 }
-
-class TestClass {
-	@Test
-	public void testWithoutHashEquals() {
-		assertEquals(3, EmployeeWithoutHashEquals.sameDetailsDifferentObjects());
-		assertEquals(2, EmployeeWithoutHashEquals.sameDetailsSameObjects());
-	}
-}

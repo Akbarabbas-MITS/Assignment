@@ -70,10 +70,4 @@ public class EmployeeWithHash {
 		System.out.println("Same Details Same Objects : "+sameDetailsSameObjects());
 	}
 	
-	@Test
-	public void test() {
-		assertEquals(3, sameDetailsDifferentObjects());
-		assertEquals(2, sameDetailsSameObjects());
-	}
-	
 }
