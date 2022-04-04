@@ -39,7 +39,7 @@ public class EmployeeWithHashEquals {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(firstName, id, lastName);
+		return Objects.hash(id, firstName, lastName);
 	}
 
 	@Override
@@ -54,18 +54,6 @@ public class EmployeeWithHashEquals {
 		return Objects.equals(firstName, other.firstName) && id == other.id && Objects.equals(lastName, other.lastName);
 	}
 
-	public static int sameDetailsDifferentObjects() {
-		HashSet<EmployeeWithHashEquals> empSet = new HashSet<>();
-		EmployeeWithHashEquals emp1 = new EmployeeWithHashEquals(1, "John", "Doe");
-		EmployeeWithHashEquals emp2 = new EmployeeWithHashEquals(2, "Mark", "Agnel");
-		EmployeeWithHashEquals emp3 = new EmployeeWithHashEquals(1, "John", "Doe");
-		empSet.add(emp1);
-		empSet.add(emp2);
-		empSet.add(emp3);
-		return empSet.size();
-	}
-	
-	
 	public static int sameDetailsSameObjects() {
 		HashSet<EmployeeWithHashEquals> empSet = new HashSet<>();
 		EmployeeWithHashEquals emp1 = new EmployeeWithHashEquals(1, "John", "Doe");
@@ -78,7 +66,6 @@ public class EmployeeWithHashEquals {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("Same Details Different Objects : "+sameDetailsDifferentObjects());
 		System.out.println("Same Details Same Objects : "+sameDetailsSameObjects());
 	}
 	

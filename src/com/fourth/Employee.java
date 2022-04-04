@@ -1,20 +1,20 @@
 package com.fourth;
 
 public class Employee implements Comparable<Employee>{
-	private long id;
+	private int id;
 	private String firstName;
 	private String lastName;
 	
-	public Employee(long id, String firstName, String lastName) {
+	public Employee(int id, String firstName, String lastName) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getFirstName() {
@@ -29,6 +29,15 @@ public class Employee implements Comparable<Employee>{
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	
+	@Override
+	public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 
 	@Override
 	public int compareTo(Employee o) {

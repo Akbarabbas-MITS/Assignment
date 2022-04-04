@@ -1,12 +1,27 @@
 package com.seventh;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Scanner;
 
+import org.junit.Test;
+
 public class TryWithResources {
-	public static void main(String[] args) {
+	
+	@Test
+	public void testTry() {
+		Scanner temp;
 		try(Scanner sc = new Scanner(System.in)){
-			System.out.println("User has entered : "+sc.nextLine());
-			System.out.println("User has entered again : "+sc.nextLine());
+			temp = sc;
 		}
+		String expected = "Scanner closed";
+        String actual = null;
+        try {
+            temp.nextLine();
+        } catch (Exception e) {
+            actual = e.getLocalizedMessage();
+        }
+
+        assertEquals(expected, actual);
 	}
 }

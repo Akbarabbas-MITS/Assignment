@@ -48,17 +48,6 @@ public class EmployeeWithEquals {
 		EmployeeWithEquals other = (EmployeeWithEquals) obj;
 		return Objects.equals(firstName, other.firstName) && id == other.id && Objects.equals(lastName, other.lastName);
 	}
-
-	public static int sameDetailsDifferentObjects() {
-		HashSet<EmployeeWithEquals> empSet = new HashSet<>();
-		EmployeeWithEquals emp1 = new EmployeeWithEquals(1, "John", "Doe");
-		EmployeeWithEquals emp2 = new EmployeeWithEquals(2, "Mark", "Agnel");
-		EmployeeWithEquals emp3 = new EmployeeWithEquals(1, "John", "Doe");
-		empSet.add(emp1);
-		empSet.add(emp2);
-		empSet.add(emp3);
-		return empSet.size();
-	}
 	
 	
 	public static int sameDetailsSameObjects() {
@@ -73,7 +62,6 @@ public class EmployeeWithEquals {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("Same Details Different Objects : "+sameDetailsDifferentObjects());
 		System.out.println("Same Details Same Objects : "+sameDetailsSameObjects());
 	}
 	

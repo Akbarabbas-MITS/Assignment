@@ -36,19 +36,6 @@ public class EmployeeWithoutHashEquals {
 		this.lastName = lastName;
 	}
 	
-	
-	public static int sameDetailsDifferentObjects() {
-		HashSet<EmployeeWithoutHashEquals> empSet = new HashSet<>();
-		EmployeeWithoutHashEquals emp1 = new EmployeeWithoutHashEquals(1, "John", "Doe");
-		EmployeeWithoutHashEquals emp2 = new EmployeeWithoutHashEquals(2, "Mark", "Agnel");
-		EmployeeWithoutHashEquals emp3 = new EmployeeWithoutHashEquals(1, "John", "Doe");
-		empSet.add(emp1);
-		empSet.add(emp2);
-		empSet.add(emp3);
-		return empSet.size();
-	}
-	
-	
 	public static int sameDetailsSameObjects() {
 		HashSet<EmployeeWithoutHashEquals> empSet = new HashSet<>();
 		EmployeeWithoutHashEquals emp1 = new EmployeeWithoutHashEquals(1, "John", "Doe");
@@ -61,7 +48,6 @@ public class EmployeeWithoutHashEquals {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("Same Details Different Objects : "+sameDetailsDifferentObjects());
 		System.out.println("Same Details Same Objects : "+sameDetailsSameObjects());
 	}
 	

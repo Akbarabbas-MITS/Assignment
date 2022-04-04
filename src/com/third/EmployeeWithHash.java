@@ -39,20 +39,8 @@ public class EmployeeWithHash {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(firstName, id, lastName);
-	}
-
-	public static int sameDetailsDifferentObjects() {
-		HashSet<EmployeeWithHash> empSet = new HashSet<>();
-		EmployeeWithHash emp1 = new EmployeeWithHash(1, "John", "Doe");
-		EmployeeWithHash emp2 = new EmployeeWithHash(2, "Mark", "Agnel");
-		EmployeeWithHash emp3 = new EmployeeWithHash(1, "John", "Doe");
-		empSet.add(emp1);
-		empSet.add(emp2);
-		empSet.add(emp3);
-		return empSet.size();
-	}
-	
+		return Objects.hash(id, firstName, lastName);
+	}	
 	
 	public static int sameDetailsSameObjects() {
 		HashSet<EmployeeWithHash> empSet = new HashSet<>();
@@ -66,7 +54,6 @@ public class EmployeeWithHash {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("Same Details Different Objects : "+sameDetailsDifferentObjects());
 		System.out.println("Same Details Same Objects : "+sameDetailsSameObjects());
 	}
 	
