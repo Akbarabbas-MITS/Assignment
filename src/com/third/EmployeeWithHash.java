@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import org.junit.Test;
 
@@ -40,7 +41,14 @@ public class EmployeeWithHash {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, firstName, lastName);
-	}	
+	}
+	
+	public static int getSize(HashSet<EmployeeWithHash> empSet) {
+		return empSet
+                .stream().map(employee -> employee.getId() + employee.getFirstName() + employee.getLastName())
+                .collect(Collectors.toSet())
+                .size();
+	}
 	
 	public static int sameDetailsSameObjects() {
 		HashSet<EmployeeWithHash> empSet = new HashSet<>();

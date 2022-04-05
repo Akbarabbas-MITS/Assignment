@@ -1,11 +1,8 @@
 package com.third;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.HashSet;
 import java.util.Objects;
-
-import org.junit.Test;
+import java.util.stream.Collectors;
 
 public class EmployeeWithHashEquals {
 	private long id;
@@ -53,12 +50,19 @@ public class EmployeeWithHashEquals {
 		EmployeeWithHashEquals other = (EmployeeWithHashEquals) obj;
 		return Objects.equals(firstName, other.firstName) && id == other.id && Objects.equals(lastName, other.lastName);
 	}
+	
+	public static int getSize(HashSet<EmployeeWithHashEquals> empSet) {
+		return empSet
+                .stream().map(employee -> employee.getId() + employee.getFirstName() + employee.getLastName())
+                .collect(Collectors.toSet())
+                .size();
+	}
 
 	public static int sameDetailsSameObjects() {
 		HashSet<EmployeeWithHashEquals> empSet = new HashSet<>();
 		EmployeeWithHashEquals emp1 = new EmployeeWithHashEquals(1, "John", "Doe");
 		EmployeeWithHashEquals emp2 = new EmployeeWithHashEquals(2, "Mark", "Agnel");
-		EmployeeWithHashEquals emp3 = emp1;
+		EmployeeWithHashEquals emp3 = new EmployeeWithHashEquals(1, "John", "Doe");
 		empSet.add(emp1);
 		empSet.add(emp2);
 		empSet.add(emp3);

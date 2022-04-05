@@ -3,6 +3,7 @@ package com.third;
 import static org.junit.Assert.assertEquals;
 
 import java.util.HashSet;
+import java.util.stream.Collectors;
 
 import org.junit.Test;
 
@@ -34,6 +35,13 @@ public class EmployeeWithoutHashEquals {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	public static int getSize(HashSet<EmployeeWithoutHashEquals> empSet) {
+		return empSet
+                .stream().map(employee -> employee.getId() + employee.getFirstName() + employee.getLastName())
+                .collect(Collectors.toSet())
+                .size();
 	}
 	
 	public static int sameDetailsSameObjects() {
